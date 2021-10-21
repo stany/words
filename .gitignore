@@ -25,5 +25,6 @@ pgctl.yaml
 /.idea
 /venv
 /env
+env
 .pytest_cache
 .mypy_cache
