@@ -1,0 +1,3 @@
+bz2file==0.98
+tqdm==4.47.0
+wiktionary-de-parser==0.8.1

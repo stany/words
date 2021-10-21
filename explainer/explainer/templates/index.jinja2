@@ -1,0 +1,18 @@
+{% extends "layout.jinja2" %}
+
+{% block content %}
+<div class="content">
+  <h1>
+    <span class="font-semi-bold">Explainer</span>
+    <span class="smaller">Hackathon de-code project</span>
+  </h1>
+  <p class="lead">Welcome to <span class="font-normal">{{project}}</span>, a&nbsp;fun way to learn spelling of new words&nbsp;
+  </p>
+  <p class="lead">Enter the new word</p>
+  <form action="/post" method="post">
+    <input type="text" id="word" name="word">
+    <input type="submit" value="Submit">
+  </form>
+
+</div>
+{% endblock content %}

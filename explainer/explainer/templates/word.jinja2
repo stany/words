@@ -1,0 +1,33 @@
+{% extends "layout.jinja2" %}
+
+{% block content %}
+<div class="content">
+  <span class="lead">New word:</span>
+  <form action="/post" method="post" style="display:inline">
+    <input type="text" id="word" name="word" value="{{word.lower()}}">
+    <input type="submit" value="Submit">
+  </form>
+  <h1>
+    <span class="font-semi-bold">Explainer</span>
+    <span class="smaller">Hackathon de-code project</span>
+  </h1>
+  <p class="lead">Welcome to <span class="font-normal">{{project}}</span>, a&nbsp;fun way to learn spelling of new words&nbsp;
+  </p>
+  <p class="lead">The word is: <span class="font-normal">{{word}}&nbsp;&nbsp;->&nbsp;&nbsp;</span> Translation: <span class="font-normal">{{en_word}}</span></p>
+  <p class="lead">Singular / Plural: <span class="font-normal">{{singular_plural}}</span></p>
+  <p class="lead">Declination: <span class="font-normal">{{singular_declination}}</span></p>
+  <hr>
+  {%- for sentence in sentences %}
+    {{ sentence.replace(word, '<b>'+word+'</b>') | safe -}}<br>
+  {% endfor %}
+  <hr>
+  <iframe id="linguee" style="width: 80%; height: 550px; background-color: white;" src="https://www.linguee.com/english-german/search?source=auto&query={{word}}" name="linguee"></iframe>
+
+  <iframe id="leo" style="width: 100%; height: 800px" src="https://dict.leo.org/german-english/{{word}}" name="leo"></iframe>  
+
+  <iframe id="{{word}}" style="width: 100%; height: 550px; background-color: white;" src="static/google/{{word}}.html" name="{{word}}"></iframe>
+
+  <iframe id="thesaurus" style="width: 100%; height: 1000px" src="https://www.openthesaurus.de/synonyme/{{word}}" name="thesaurus"></iframe>  
+  
+</div>
+{% endblock content %}
